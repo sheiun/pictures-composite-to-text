@@ -1,5 +1,6 @@
 from argparse import ArgumentParser
 from glob import glob
+from os import makedirs
 from random import choice
 from uuid import uuid4
 
@@ -67,8 +68,12 @@ def generate(text, scale=1, size=(128, 128), font_size=32, pics_path="pics/*.jpg
         f"images/transform/{text}_{size}_{str(uuid)}.png", format="png", dpi=(500, 500)
     )
 
-
 if __name__ == "__main__":
+    try:
+        makedirs("images/origin/")
+        makedirs("images/transform/")
+    except:
+        pass
     parser = ArgumentParser()
     parser.add_argument("text", help="Text to generate.", type=str)
     parser.add_argument(
