@@ -14,5 +14,5 @@ from generator import generate
 ### CLI
 
 ```bash
-python .\generator.py 測試
+python generator.py 測試
 ```
